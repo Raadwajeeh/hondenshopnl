@@ -1,5 +1,4 @@
 <header class="site-header">
-
     <div class="top-bar">
         <div class="logo">
             <span class="logo-main">DogLove</span>
@@ -32,5 +31,4 @@
             <li><a href="#">Klantenservice</a></li>
         </ul>
     </nav>
-
 </header>
