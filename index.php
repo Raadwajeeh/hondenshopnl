@@ -23,7 +23,7 @@
         <section class="product-list">
             <article class="product-card">
                 <div class="product-image">
-                    <img src="fotos/hond_voer.jpg" alt="Hondenvoer">
+                    <img src="img/food/hond_voer.jpg" alt="Hondenvoer">
                 </div>
                 <div class="product-info">
                     <h2>Premium Hondenvoer Adult</h2>
@@ -39,7 +39,7 @@
 
             <article class="product-card">
                 <div class="product-image">
-                    <img src="fotos/hond_speelgoed.jpg" alt="Hondenspeelgoed">
+                    <img src="img/toys/hond_speelgoed.jpg" alt="Hondenspeelgoed">
                 </div>
                 <div class="product-info">
                     <h2>Sterk Touwspeelgoed</h2>
@@ -55,7 +55,7 @@
 
             <article class="product-card">
                 <div class="product-image">
-                    <img src="fotos/hond_bed.jpg" alt="Hondenbed">
+                    <img src="img/mand/hond_bed.jpg" alt="Hondenbed">
                 </div>
                 <div class="product-info">
                     <h2>Comfort Hondenbed</h2>
