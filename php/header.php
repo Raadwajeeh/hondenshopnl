@@ -1,12 +1,13 @@
 <header class="site-header">
+
     <div class="top-bar">
         <div class="logo">
-            <span class="logo-main">DogLove</span>
-            <span class="logo-sub">Shop</span>
+            <span class="logo-main">HondenShop</span>
+            <span class="logo-sub">NL</span>
         </div>
 
-        <form class="search-form">
-            <input type="text" placeholder="Zoek naar voer, speelgoed, bedden...">
+        <form class="search-form" action="#" method="get">
+            <input type="text" name="q" placeholder="Zoek naar voer, snacks, speelgoed, bedden...">
             <button type="submit">Zoeken</button>
         </form>
 
@@ -20,10 +21,11 @@
 
     <nav class="nav-bar">
         <ul class="nav-left">
-            <li><a href="#">Hondenvoer</a></li>
-            <li><a href="#">Snacks</a></li>
-            <li><a href="#">Speelgoed</a></li>
-            <li><a href="#">Hondenbedden</a></li>
+        <li><a href="index.php">Alle producten</a></li>
+          <li><a href="index.php?category=voer">Hondenvoer</a></li>
+          <li><a href="index.php?category=snacks">Snacks</a></li>
+          <li><a href="index.php?category=speelgoed">Speelgoed</a></li>
+          <li><a href="index.php?category=bedden">Hondenbedden</a></li>
         </ul>
 
         <ul class="nav-right">
@@ -31,4 +33,5 @@
             <li><a href="#">Klantenservice</a></li>
         </ul>
     </nav>
+
 </header>

@@ -17,6 +17,7 @@ body {
     margin: 0 auto;
 }
 
+/* HEADER */
 .site-header {
     background: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -38,12 +39,13 @@ body {
 }
 
 .logo-main {
-    color: #2f7c32; 
+    color: #2f7c32;
     font-size: 20px;
 }
 
 .logo-sub {
-    color: #ff7f32; 
+    color: #ff7f32;
+    font-size: 14px;
 }
 
 .search-form {
@@ -117,7 +119,7 @@ body {
     text-decoration: underline;
 }
 
-
+/* MAIN */
 .page {
     padding: 0 16px 32px;
 }
@@ -139,6 +141,7 @@ body {
     font-size: 14px;
 }
 
+/* PRODUCTS */
 .product-list {
     display: flex;
     flex-direction: column;
@@ -205,7 +208,7 @@ body {
     background: #e86f25;
 }
 
-
+/* FOOTER */
 .site-footer {
     margin-top: 24px;
     padding: 16px;
@@ -227,6 +230,7 @@ body {
     text-decoration: underline;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .top-bar {
         flex-direction: column;

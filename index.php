@@ -1,10 +1,26 @@
 <?php
+require_once 'php/db.php';
+
+if (isset($_GET['category']) && !empty($_GET['category'])) {
+    $category = $_GET['category'];
+
+    $sql = "SELECT * FROM products WHERE category = :category ORDER BY id DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':category', $category);
+    $stmt->execute();
+} else {
+    $sql = "SELECT * FROM products ORDER BY id DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+$producten = $stmt->fetchAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>DogLove Shop - Home</title>
+    <title>HondenShopNL - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,59 +32,33 @@
     <div class="page-inner">
 
         <section class="hero">
-            <h1>DogLove Shop</h1>
-            <p>Alles voor jouw hond: voer, speelgoed en fijne bedden op één plek.</p>
+            <h1>HondenShopNL</h1>
+            <p>Alles voor jouw hond: voer, snacks, speelgoed en fijne bedden op één plek.</p>
         </section>
 
         <section class="product-list">
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="img/food/hond_voer.jpg" alt="Hondenvoer">
-                </div>
-                <div class="product-info">
-                    <h2>Premium Hondenvoer Adult</h2>
-                    <p>Volledig voer voor volwassen honden. Rijk aan kip, met vitamines voor een glanzende vacht.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€24,99</span>
-                        <button class="btn-cart">
-                            &#128722; In winkelwagen
-                        </button>
+            <?php foreach ($producten as $p): ?>
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="fotos/<?= htmlspecialchars($p['image']); ?>"
+                             alt="<?= htmlspecialchars($p['name']); ?>">
                     </div>
-                </div>
-            </article>
+                    <div class="product-info">
+                        <h2><?= htmlspecialchars($p['name']); ?></h2>
+                        <p><?= htmlspecialchars($p['description']); ?></p>
 
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="img/toys/hond_speelgoed.jpg" alt="Hondenspeelgoed">
-                </div>
-                <div class="product-info">
-                    <h2>Sterk Touwspeelgoed</h2>
-                    <p>Stevig touw voor trekspelletjes. Geschikt voor middelgrote en grote honden.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€9,99</span>
-                        <button class="btn-cart">
-                            &#128722; In winkelwagen
-                        </button>
+                        <div class="product-bottom">
+                            <span class="product-price">
+                                €<?= number_format($p['price'], 2, ',', '.'); ?>
+                            </span>
+
+                            <button class="btn-cart" type="button">
+                                &#128722; In winkelwagen
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="img/mand/hond_bed.jpg" alt="Hondenbed">
-                </div>
-                <div class="product-info">
-                    <h2>Comfort Hondenbed</h2>
-                    <p>Zacht en wasbaar hondenbed. Ideaal voor een warme en rustige slaapplaats.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€39,99</span>
-                        <button class="btn-cart">
-                            &#128722; In winkelwagen
-                        </button>
-                    </div>
-                </div>
-            </article>
-
+                </article>
+            <?php endforeach; ?>
         </section>
 
     </div>
