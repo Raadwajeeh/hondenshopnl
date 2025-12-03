@@ -1,6 +1,8 @@
 <?php
 require_once 'php/db.php';
 
+$category = null;
+
 if (isset($_GET['category']) && !empty($_GET['category'])) {
     $category = $_GET['category'];
 
