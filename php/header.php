@@ -17,11 +17,30 @@ if (session_status() === PHP_SESSION_NONE) {
         </form>
 
         <div class="user-actions">
-            <a href="nog niet" class="link-login">Inloggen</a>
-            <a href="winkelwagen.php" class="link-cart">
-                &#128722; Winkelwagen
-            </a>
-        </div>
+    <?php if (!empty($_SESSION['user_id'])): ?>
+
+        <span style="font-size:14px;">
+            Welkom, <?= htmlspecialchars($_SESSION['user_name']); ?>
+        </span>
+
+        <a class="link-login" href="/hondenshopnl/logout.php">Uitloggen</a>
+
+        <?php if (!empty($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
+            <a class="link-login" href="/hondenshopnl/pages/admin_products.php">Admin Paneel</a>
+        <?php endif; ?>
+
+    <?php else: ?>
+
+        <a class="link-login" href="/hondenshopnl/login.php">Inloggen</a>
+        <a class="link-login" href="/hondenshopnl/register.php">Registreren</a>
+
+    <?php endif; ?>
+
+    <a href="/hondenshopnl/winkelwagen.php" class="link-cart">
+        &#128722; Winkelwagen
+    </a>
+</div>
+
     </div>
 
     <nav class="nav-bar">

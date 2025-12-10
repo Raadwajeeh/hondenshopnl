@@ -1,32 +1,26 @@
 <?php
-// تشغيل الـ session قبل استخدام $_SESSION
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 require_once 'php/db.php';
 
-// تأكّد أن السلة موجودة
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// --- CREATE (add item) ---
 if (isset($_GET['action']) && $_GET['action'] === 'add' && isset($_GET['id'])) {
     $product_id = intval($_GET['id']);
 
-    // جلب المنتج من قاعدة البيانات
     $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
     $stmt->bindParam(':id', $product_id, PDO::PARAM_INT);
     $stmt->execute();
     $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($product) {
-        // إذا موجود بالسلة → زد العدد
         if (isset($_SESSION['cart'][$product_id])) {
             $_SESSION['cart'][$product_id]['aantal']++;
         } else {
-            // إذا جديد → اضفه
             $_SESSION['cart'][$product_id] = [
                 'id'     => $product['id'],
                 'name'   => $product['name'],
@@ -41,7 +35,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'add' && isset($_GET['id'])) {
     exit;
 }
 
-// --- UPDATE (update quantity) ---
 if (isset($_POST['update'])) {
     if (isset($_POST['qty']) && is_array($_POST['qty'])) {
         foreach ($_POST['qty'] as $id => $aantal) {
@@ -56,7 +49,6 @@ if (isset($_POST['update'])) {
     exit;
 }
 
-// --- DELETE (remove single product) ---
 if (isset($_GET['action']) && $_GET['action'] === 'remove' && isset($_GET['id'])) {
     $remove_id = intval($_GET['id']);
     if (isset($_SESSION['cart'][$remove_id])) {
@@ -66,7 +58,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'remove' && isset($_GET['id'])
     exit;
 }
 
-// --- DELETE ALL ---
 if (isset($_GET['action']) && $_GET['action'] === 'clear') {
     $_SESSION['cart'] = [];
     header("Location: winkelwagen.php");
@@ -79,10 +70,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'clear') {
     <meta charset="UTF-8">
     <title>Winkelwagen - HondenShopNL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- الستايل العام للموقع -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- ملف ستايل خاص بسلة المشتريات فقط -->
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
