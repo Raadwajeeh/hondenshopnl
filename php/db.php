@@ -9,7 +9,7 @@ try {
         "mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password
     );
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Verbinding mislukt: " . $e->getMessage();
-    exit;
+} catch (PDOException $m) {
+    echo "Verbinding mislukt: " . $m->getMessage();
+    exit();
 }
