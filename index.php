@@ -54,9 +54,10 @@ $producten = $stmt->fetchAll();
                                 €<?= number_format($p['price'], 2, ',', '.'); ?>
                             </span>
 
-                            <button class="btn-cart" type="button">
+                            <a class="btn-cart" href="winkelwagen.php?action=add&id=<?= $p['id']; ?>">
                                 &#128722; In winkelwagen
-                            </button>
+                            </a>
+
                         </div>
                     </div>
                 </article>

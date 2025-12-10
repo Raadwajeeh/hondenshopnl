@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <header class="site-header">
 
     <div class="top-bar">
@@ -21,16 +26,16 @@
 
     <nav class="nav-bar">
         <ul class="nav-left">
-            <li> <a href="index.php?category=">Alle producten</a> </li>
-            <li><a href="index.php?category=voer">Hondenvoer</a></li>
-            <li><a href="index.php?category=snacks">Snacks</a></li>
-            <li><a href="index.php?category=speelgoed">Speelgoed</a></li>
-            <li><a href="index.php?category=bedden">Hondenbedden</a></li>
+            <li> <a href="/hondenshopnl/index.php?category=">Alle producten</a> </li>
+            <li><a href="/hondenshopnl/index.php?category=voer">Hondenvoer</a></li>
+            <li><a href="/hondenshopnl/index.php?category=snacks">Snacks</a></li>
+            <li><a href="/hondenshopnl/index.php?category=speelgoed">Speelgoed</a></li>
+            <li><a href="/hondenshopnl/index.php?category=bedden">Hondenbedden</a></li>
         </ul>
 
         <ul class="nav-right">
             <li><a href="nog niet">NL ▾</a></li>
-            <li><a href="klantenservice.php">Klantenservice</a></li>
+            <li><a href="/hondenshopnl/klantenservice.php">Klantenservice</a></li>
         </ul>
     </nav>
 
