@@ -1,9 +1,8 @@
 <?php
-//require_once 'php/db.php';
 
 $name  = "Admin";
 $email = "admin@hondenshop.nl";
-$plainPassword = "admin123"; // غيرها لو تحب
+$plainPassword = "admin123"; 
 
 $hash = password_hash($plainPassword, PASSWORD_DEFAULT);
 
