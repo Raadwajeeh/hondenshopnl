@@ -18,25 +18,21 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <div class="user-actions">
             <?php if (!empty($_SESSION['user_id'])): ?>
-
                 <span style="font-size:14px;">
                     Welkom, <?= htmlspecialchars($_SESSION['user_name']); ?>
                 </span>
 
-                <a class="link-login" href="/hondenshopnl/logout.php">Uitloggen</a>
+                <a class="link-login" href="/hondenshopnl/php/logout.php">Uitloggen</a>
 
                 <?php if (!empty($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
-                    <a class="link-login" href="/hondenshopnl/pages/admin_products.php">Admin Paneel</a>
+                    <a class="link-login" href="/hondenshopnl/admin/admin_products.php">Admin Paneel</a>
                 <?php endif; ?>
-
             <?php else: ?>
-
-                <a class="link-login" href="/hondenshopnl/login.php">Inloggen</a>
-                <a class="link-login" href="/hondenshopnl/register.php">Registreren</a>
-
+                <a class="link-login" href="/hondenshopnl/pages/login.php">Inloggen</a>
+                <a class="link-login" href="/hondenshopnl/pages/register.php">Registreren</a>
             <?php endif; ?>
 
-            <a href="/hondenshopnl/winkelwagen.php" class="link-cart">
+            <a href="/hondenshopnl/pages/winkelwagen.php" class="link-cart">
                 &#128722; Winkelwagen
             </a>
         </div>
@@ -54,7 +50,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <ul class="nav-right">
             <li><a href="nog niet">NL ▾</a></li>
-            <li><a href="/hondenshopnl/klantenservice.php">Klantenservice</a></li>
+            <li><a href="/hondenshopnl/pages/klantenservice.php">Klantenservice</a></li>
         </ul>
     </nav>
 

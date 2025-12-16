@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once 'php/db.php';
+require_once '../php/db.php';
 
 $errors = [];
 
@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['is_admin']  = ($user['is_admin'] == 1);
 
                 if ($_SESSION['is_admin']) {
-                    header("Location: pages/admin_products.php");
+                    header("Location: ../admin/admin_products.php");
                 } else {
-                    header("Location: index.php");
+                    header("Location: ../index.php");
                 }
                 exit;
             } else {
@@ -47,11 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Inloggen - HondenShopNL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<?php include 'php/header.php'; ?>
+<?php include '../php/head.php'; ?>
 
 <main class="page">
     <div class="page-inner">
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </main>
 
-<?php include 'php/footer.php'; ?>
+<?php include '../php/foot.php'; ?>
 
 </body>
 </html>

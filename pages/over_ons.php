@@ -7,11 +7,11 @@
     <meta charset="UTF-8">
     <title>Over ons - HondenShopNL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<?php include 'php/header.php'; ?>
+<?php include '../php/head.php'; ?>
 
 <main class="page">
     <div class="page-inner">
@@ -45,7 +45,7 @@
     </div>
 </main>
 
-<?php include 'php/footer.php'; ?>
+<?php include '../php/foot.php'; ?>
 
 </body>
 </html>

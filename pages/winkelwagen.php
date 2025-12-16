@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once 'php/db.php';
+require_once '../php/db.php';
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
@@ -70,12 +70,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'clear') {
     <meta charset="UTF-8">
     <title>Winkelwagen - HondenShopNL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
 
-<?php include 'php/header.php'; ?>
+<?php include '../php/head.php'; ?>
 
 <main class="page">
     <div class="page-inner">
@@ -86,11 +86,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'clear') {
         </section>
 
         <?php if (empty($_SESSION['cart'])): ?>
-
             <p class="cart-empty">
-                Je winkelwagen is leeg. Ga terug naar de <a href="index.php">shop</a> om producten toe te voegen.
+                Je winkelwagen is leeg. Ga terug naar de <a href="../index.php">shop</a> om producten toe te voegen.
             </p>
-
         <?php else: ?>
 
             <section class="cart-section">
@@ -168,7 +166,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'clear') {
     </div>
 </main>
 
-<?php include 'php/footer.php'; ?>
+<?php include '../php/foot.php'; ?>
 
 </body>
 </html>

@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once 'php/db.php';
+require_once '../php/db.php';
 
 $errors = [];
 $name = '';
@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (name, email, password_hash, is_admin)
-                VALUES (:name, :email, :password_hash, 0)";
+        $sql = "INSERT INTO users (name, email, password_hash)
+                VALUES (:name, :email, :password_hash)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
@@ -63,9 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $newUserId = $conn->lastInsertId();
         $_SESSION['user_id']   = $newUserId;
         $_SESSION['user_name'] = $name;
-        $_SESSION['is_admin']  = false;
 
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit;
     }
 }
@@ -76,11 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Registreren - HondenShopNL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<?php include 'php/header.php'; ?>
+<?php include '../php/head.php'; ?>
 
 <main class="page">
     <div class="page-inner">
@@ -145,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </main>
 
-<?php include 'php/footer.php'; ?>
+<?php include '../php/foot.php'; ?>
 
 </body>
 </html>

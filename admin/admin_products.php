@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (empty($_SESSION['user_id']) || empty($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
-    header("Location: ../login.php");
+    header("Location: ../pages/login.php");
     exit;
 }
 
@@ -26,7 +26,7 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<?php include '../php/header.php'; ?>
+<?php include '../php/head.php'; ?>
 
 <main class="page">
     <div class="page-inner">
@@ -81,7 +81,7 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </main>
 
-<?php include '../php/footer.php'; ?>
+<?php include '../php/foot.php'; ?>
 
 </body>
 </html>

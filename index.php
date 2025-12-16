@@ -28,7 +28,7 @@ $producten = $stmt->fetchAll();
 </head>
 <body>
 
-<?php include 'php/header.php'; ?>
+<?php include 'php/head.php'; ?>
 
 <main class="page">
     <div class="page-inner">
@@ -54,7 +54,7 @@ $producten = $stmt->fetchAll();
                                 €<?= number_format($p['price'], 2, ',', '.'); ?>
                             </span>
 
-                            <a class="btn-cart" href="winkelwagen.php?action=add&id=<?= $p['id']; ?>">
+                            <a class="btn-cart" href="./pages/winkelwagen.php?action=add&id=<?= $p['id']; ?>">
                                 &#128722; In winkelwagen
                             </a>
 
@@ -67,7 +67,7 @@ $producten = $stmt->fetchAll();
     </div>
 </main>
 
-<?php include 'php/footer.php'; ?>
+<?php include 'php/foot.php'; ?>
 
 </body>
 </html>
