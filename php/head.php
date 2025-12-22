@@ -8,7 +8,6 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="top-bar">
         <div class="logo">
             <span class="logo-main">HondenShop</span>
-            <span class="logo-sub">NL</span>
         </div>
 
             <form class="search-form">
