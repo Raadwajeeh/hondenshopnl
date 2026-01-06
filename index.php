@@ -35,7 +35,7 @@ $producten = $stmt->fetchAll();
 
         <section class="hero">
             <h1>HondenShopNL</h1>
-            <p>Alles voor jouw hond: voer, snacks, speelgoed en fijne bedden op één plek.</p>
+            <p>Alles voor jouw hond: voer, snacks, ,speelgoed en fijne bedden op één plek.</p>
         </section>
 
         <section class="product-list">
@@ -71,3 +71,4 @@ $producten = $stmt->fetchAll();
 
 </body>
 </html>
+
